@@ -12,3 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.Middle {
+  text-align: right;
+  width: 100%;
+  color: #282c34;
+  margin-top: 100px;
+}

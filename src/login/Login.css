@@ -1,0 +1,29 @@
+.Login {
+  text-align: right;
+  width: 100%;
+  color: #282c34;
+  margin-top: 100px;
+}
+
+.Login table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Login button {
+  width: 100%;
+  border: 0;
+  background-color: #282c34;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
+  color: #939BAC;
+  box-shadow: none;
+  border-radius: 0;
+  transition: 0.5s;
+}
+
+.Login button:hover {
+  background-color: #4a4f58;
+  cursor: pointer;
+}

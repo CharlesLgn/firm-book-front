@@ -1,12 +1,38 @@
 import React from 'react';
 import './App.css';
+import Grid from "@material-ui/core/Grid";
+import Header from '../header/Header'
+import Footer from "../footer/Footer";
+import Login from "../login/Login";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-            <p>connected</p>
-      </header>
+        <Grid container spacing={24}>
+            <Grid item xs={12}>
+                <div id="header">
+                    <Header/>
+                </div>
+            </Grid>
+            <Grid item xs={12} sm={1}>
+                <div id="left">
+                </div>
+            </Grid>
+            <Grid item xs={12} sm={10}>
+                <div id="middle">
+                    <Login />
+                </div>
+            </Grid>
+            <Grid item xs={12} sm={1}>
+                <div id="right">
+                </div>
+            </Grid>
+            <Grid item xs={12}>
+                <div id="footer">
+                    <Footer/>
+                </div>
+            </Grid>
+        </Grid>
     </div>
   );
 }

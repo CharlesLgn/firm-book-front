@@ -1,6 +1,5 @@
 import React from "react";
 import {SvgIcon} from "@material-ui/core";
-import Menu from "../menu/Menu";
 
 
 class ReseachIcon extends React.Component {
@@ -31,7 +30,8 @@ class PersonIcon extends React.Component {
         return (
             <SvgIcon>
                 <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                <path
+                    d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
             </SvgIcon>
         );
     }
@@ -41,9 +41,10 @@ class PostIcon extends React.Component {
     render() {
         return (
             <SvgIcon>
-                <path
-                    d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>
-                <path d="M0 0h24v24H0z" fill="none"/>
+                <path fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2l.01-11c0-1.11.88-2 1.99-2h4V4c0-1.11.89-2 2-2h4c1.11 0 2 .89 2 2v2h4z"/>
+                <path fill="none" d="M0 0h24v24H0z"/>
             </SvgIcon>
         );
     }
@@ -60,11 +61,22 @@ class MenuIcon extends React.Component {
     }
 }
 
+class PersonDataIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon>
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 12.25c1.24 0 2.25-1.01 2.25-2.25S13.24 7.75 12 7.75 9.75 8.76 9.75 10s1.01 2.25 2.25 2.25zm4.5 4c0-1.5-3-2.25-4.5-2.25s-4.5.75-4.5 2.25V17h9v-.75zM19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+            </SvgIcon>
+        );
+    }
+}
 
 export {
     HomeIcon,
     PersonIcon,
     PostIcon,
     ReseachIcon,
-    MenuIcon
+    MenuIcon,
+    PersonDataIcon
 };

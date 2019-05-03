@@ -1,0 +1,19 @@
+.Detail-Person {
+  text-align: left;
+}
+
+.Detail-Person-Table {
+  text-align: left;
+}
+
+.Detail-Avatar{
+  margin: 20px;
+
+  min-height: 75px;
+  min-width: 75px;
+}
+
+.Detail-Person Button {
+  margin: 10px;
+}
+

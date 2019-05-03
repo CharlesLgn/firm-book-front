@@ -1,0 +1,14 @@
+.Person Table, .Person-Paper{
+  min-width: 620px;
+  font-size: 16px;
+}
+
+.Person-Table-Head {
+}
+
+.Person-Table-Title {
+  color: ivory;
+  font-weight: bold;
+}
+
+

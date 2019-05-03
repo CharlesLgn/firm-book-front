@@ -1,15 +1,12 @@
-.Menu {
-  text-align: left;
-  font-size: 20px;
-  font-family: Roboto, sans-serif;
+.Research {
+
+}
+.Research-Paper {
+  display: flex;
+  flex-Wrap: wrap;
 }
 
-.Menu Button {
-  position: fixed;
-  top: 10px;
-  border-radius: 50px;
-  margin: 0;
-  padding: 10px;
+.Research-TextField {
+  width: 120px;
 }
-
 

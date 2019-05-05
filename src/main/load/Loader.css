@@ -1,0 +1,10 @@
+.Nothing {
+    display: none;
+}
+
+#loader {
+    position: absolute;
+    padding: 0;
+    top: 0;
+}
+

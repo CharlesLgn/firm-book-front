@@ -1,19 +1,34 @@
 .Detail-Person {
   text-align: left;
 }
+.Detail-Person-Paper {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
 
 .Detail-Person-Table {
+  text-align: right;
+}
+
+.Detail-Person-Table table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Detail-Person-Table td:nth-child(even) {
   text-align: left;
+  padding-left: 10px;
 }
 
 .Detail-Avatar{
   margin: 20px;
-
   min-height: 75px;
   min-width: 75px;
 }
 
-.Detail-Person Button {
-  margin: 10px;
+.Detail-Person-Update {
+  padding-left: 500px;
+  margin-right: auto;
 }
-

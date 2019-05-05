@@ -1,19 +1,6 @@
 import React from 'react';
 import './Research.css';
-import {
-    Button, Divider, FormControl, Grid,
-    IconButton, InputLabel,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText, MenuItem, Paper, Select,
-    SwipeableDrawer, TextField
-} from "@material-ui/core";
-import {HomeIcon, MenuIcon, PersonIcon, PostIcon, ReseachIcon} from "../utils/Icon";
-import ReactDOM from "react-dom";
-import Home from "../main/home/Home";
-import Login from "../login/Login";
-import {Go, goHome, goPerson, goPost, goResearch} from "../utils/Go";
+import {Button, Grid, MenuItem, Paper, TextField} from "@material-ui/core";
 
 
 class Research extends React.Component {
@@ -46,12 +33,9 @@ class Research extends React.Component {
                                        label="Sex"
                                        margin="normal"
                             >
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={10}>Man</MenuItem>
-                                <MenuItem value={20}>Woman</MenuItem>
-                                <MenuItem value={30}>Other</MenuItem>
+                                <MenuItem value={1}>Man</MenuItem>
+                                <MenuItem value={2}>Woman</MenuItem>
+                                <MenuItem value={3}>Other</MenuItem>
                             </TextField>
                         </Grid>
                         <Grid xs={4}>

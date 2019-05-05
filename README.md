@@ -22,5 +22,17 @@ ___Rules of the project :___
  - Famework front   : `React` (free to use every techno) 
 
 ***
-  
+
+___Run the projet :___
+
+ - Clone the project
+ - with Yarn :
+    - `yarn install`
+    - `yarn start`
+ - with npm : 
+    - `npn install --save react-script`
+    - `npm start `
+
+***
+
 Grades  :   ![grade](https://img.shields.io/badge/17-20-00BB00.svg)

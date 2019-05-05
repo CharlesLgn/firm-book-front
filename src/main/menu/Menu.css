@@ -6,7 +6,7 @@
 
 .Menu Button {
   position: fixed;
-  top: 10px;
+  top: 0;
   border-radius: 50px;
   margin: 0;
   padding: 10px;

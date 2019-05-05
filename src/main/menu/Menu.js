@@ -10,8 +10,8 @@ import {
     ListItemText,
     SwipeableDrawer
 } from "@material-ui/core";
-import {HomeIcon, MenuIcon, PersonIcon, PostIcon, ReseachIcon} from "../../utils/Icon";
-import {goHome, goPerson, goPost, goResearch} from "../../utils/Go";
+import {AddPersonIcon, AddPostIcon, DisconnectIcon, HomeIcon, MenuIcon, PersonIcon, PostIcon} from "../../utils/Icon";
+import {createPerson, createPost, disconnect, goHome, goPerson, goPost} from "../../utils/Go";
 
 
 class Menu extends React.Component {
@@ -32,30 +32,48 @@ class Menu extends React.Component {
                 <List>
                     <ListItem button key="Home" onClick={goHome}>
                         <ListItemIcon>
-                            <HomeIcon />
+                            <HomeIcon/>
                         </ListItemIcon>
                         <ListItemText primary="Home"/>
                     </ListItem>
                 </List>
-                <Divider />
+                <Divider/>
                 <List>
-                    <ListItem button key="Research" onClick={goResearch}>
-                        <ListItemIcon>
-                            <ReseachIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Research"/>
-                    </ListItem>
                     <ListItem button key="people" onClick={goPerson}>
                         <ListItemIcon>
-                            <PersonIcon />
+                            <PersonIcon/>
                         </ListItemIcon>
                         <ListItemText primary="All People"/>
                     </ListItem>
                     <ListItem button key="post" onClick={goPost}>
                         <ListItemIcon>
-                            <PostIcon />
+                            <PostIcon/>
                         </ListItemIcon>
                         <ListItemText primary="All Posts"/>
+                    </ListItem>
+                </List>
+                <Divider/>
+                <List>
+                    <ListItem button key="AddPerson" onClick={createPerson}>
+                        <ListItemIcon>
+                            <AddPersonIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Add Person"/>
+                    </ListItem>
+                    <ListItem button key="AddPost" onClick={createPost}>
+                        <ListItemIcon>
+                            <AddPostIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Add Post"/>
+                    </ListItem>
+                </List>
+                <Divider/>
+                <List>
+                    <ListItem button key="post" onClick={disconnect}>
+                        <ListItemIcon>
+                            <DisconnectIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Disconnect"/>
                     </ListItem>
                 </List>
             </div>
@@ -65,7 +83,7 @@ class Menu extends React.Component {
             <div className="Menu">
                 <Button onClick={this.toggleDrawer("left", true)}>
                     <IconButton aria-label="Delete">
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                 </Button>
                 <SwipeableDrawer open={this.state.left}

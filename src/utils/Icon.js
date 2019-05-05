@@ -72,11 +72,59 @@ class PersonDataIcon extends React.Component {
     }
 }
 
+class DisconnectIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon>
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+            </SvgIcon>
+        );
+    }
+}
+
+class AddPersonIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon>
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 8c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm-6 4c.22-.72 3.31-2 6-2 2.7 0 5.8 1.29 6 2H9zm-3-3v-3h3v-2H6V7H4v3H1v2h3v3z"/>
+            </SvgIcon>
+        );
+    }
+}
+
+class AddPostIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon>
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zm-7-1h2v-4h4V9h-4V5h-2v4H9v2h4z"/>
+            </SvgIcon>
+        );
+    }
+}
+
+class EditIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon>
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path d="M5 15v-3h3v-2H5V7H3v3H0v2h3v3zm7-1.25c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM7.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H7.34zM12 12c1.93 0 3.5-1.57 3.5-3.5S13.93 5 12 5 8.5 6.57 8.5 8.5 10.07 12 12 12zm0-5c.83 0 1.5.67 1.5 1.5S12.83 10 12 10s-1.5-.67-1.5-1.5S11.17 7 12 7zm5 5c1.93 0 3.5-1.57 3.5-3.5S18.93 5 17 5c-.24 0-.48.02-.71.07.76.94 1.21 2.13 1.21 3.43 0 1.3-.47 2.48-1.23 3.42.24.05.48.08.73.08zm2.32 2.02c1 .81 1.68 1.87 1.68 3.23V19h3v-1.75c0-1.69-2.44-2.76-4.68-3.23z"/>
+            </SvgIcon>
+        );
+    }
+}
+
 export {
     HomeIcon,
     PersonIcon,
     PostIcon,
     ReseachIcon,
     MenuIcon,
-    PersonDataIcon
+    PersonDataIcon,
+    DisconnectIcon,
+    EditIcon,
+    AddPersonIcon,
+    AddPostIcon
 };

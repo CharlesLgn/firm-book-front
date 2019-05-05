@@ -3,7 +3,6 @@ import './Login.css';
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
 import ReactDOM from "react-dom";
-import Menu from "../main/menu/Menu";
 import Grid from "@material-ui/core/Grid";
 import Home from "../main/home/Home";
 import Nothing from "../main/load/Nothing";

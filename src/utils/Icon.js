@@ -116,6 +116,36 @@ class EditIcon extends React.Component {
     }
 }
 
+class ArrowUpIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon>
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+            </SvgIcon>
+        );
+    }
+}
+
+class ArrowDownIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon>
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path fill="#010101" d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/>
+            </SvgIcon>
+        );
+    }
+}
+
+class NoIcon extends React.Component {
+    render() {
+        return (
+            <SvgIcon/>
+        );
+    }
+}
+
 export {
     HomeIcon,
     PersonIcon,
@@ -126,5 +156,8 @@ export {
     DisconnectIcon,
     EditIcon,
     AddPersonIcon,
-    AddPostIcon
+    AddPostIcon,
+    ArrowDownIcon,
+    ArrowUpIcon,
+    NoIcon
 };

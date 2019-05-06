@@ -9,13 +9,12 @@ import {
     Paper,
     Table,
     TableBody,
-    TableCell,
-    TableHead,
+    TableCell, TableFooter,
+    TableHead, TablePagination,
     TableRow,
     TextField
 } from "@material-ui/core";
-import {PersonDataIcon} from "../../utils/Icon";
-import {goDetailPerson} from "../../utils/Go";
+import {ArrowDownIcon, ArrowUpIcon, NoIcon, PersonDataIcon} from "../../utils/Icon";
 import ReactDOM from "react-dom";
 
 function createPerson(id, firstName, lastName, email, room, birthDate, arriveDate) {
@@ -23,26 +22,30 @@ function createPerson(id, firstName, lastName, email, room, birthDate, arriveDat
 }
 
 const rows = [];
-
 let advanceRow = rows;
 let printRow = advanceRow;
+const nbRows = {nb:0};
 
 let advanceResearchData = {
     firstName: "",
     lastName: "",
     bureau: "",
     email: "",
-    birthDateF:new Date("1900-01-01T00:00:00").getTime(),
-    birthDateT:Date.now(),
-    arriveDateF:new Date("1900-01-01T00:00:00").getTime(),
-    arriveDateT:Date.now()
+    birthDateF: new Date("1900-01-01T00:00:00").getTime(),
+    birthDateT: Date.now(),
+    arriveDateF: new Date("1900-01-01T00:00:00").getTime(),
+    arriveDateT: Date.now()
 };
 
 class Person extends React.Component {
     state = {
         open: false,
-        searchBar:"",
-        firstTime:true
+        searchBar: "",
+        firstTime: true,
+
+        SortFirstName: 1,
+        SortLastName: 1,
+        SortEmail: 1,
     };
 
     handleClickOpen = () => {
@@ -57,6 +60,66 @@ class Person extends React.Component {
         );
     };
 
+    sort = (value, sort) => {
+        printRow.sort((item1, item2) => {
+            if (item1[value] < item2[value]) {
+                return sort;
+            } else {
+                return -sort;
+            }
+        });
+        ReactDOM.render(<PeopleData handleClick={this.props.handleClick}/>, document.getElementById('People'));
+    };
+
+    sortFirstName = () => {
+        this.setState({
+            SortFirstName: -this.state.SortFirstName,
+            SortLastName: 1,
+            SortEmail: 1,
+        }, () => {
+            this.sort('firstName', this.state.SortFirstName);
+            if (this.state.SortFirstName === -1) {
+                ReactDOM.render(<ArrowDownIcon/>, document.getElementById('FirstName-Arrow'));
+            } else {
+                ReactDOM.render(<ArrowUpIcon/>, document.getElementById('FirstName-Arrow'));
+            }
+            ReactDOM.render(<NoIcon/>, document.getElementById('LastName-Arrow'));
+            ReactDOM.render(<NoIcon/>, document.getElementById('Email-Arrow'));
+        });
+    };
+    sortLastName = () => {
+        this.setState({
+            SortFirstName: 1,
+            SortLastName: -this.state.SortLastName,
+            SortEmail: 1,
+        }, () => {
+            this.sort('lastName', this.state.SortLastName);
+            if (this.state.SortLastName === -1) {
+                ReactDOM.render(<ArrowDownIcon/>, document.getElementById('LastName-Arrow'));
+            } else {
+                ReactDOM.render(<ArrowUpIcon/>, document.getElementById('LastName-Arrow'));
+            }
+            ReactDOM.render(<NoIcon/>, document.getElementById('FirstName-Arrow'));
+            ReactDOM.render(<NoIcon/>, document.getElementById('Email-Arrow'));
+        });
+    };
+    sortEmail = () => {
+        this.setState({
+            SortFirstName: 1,
+            SortLastName: 1,
+            SortEmail: -this.state.SortEmail,
+        }, () => {
+            this.sort('email', this.state.SortEmail);
+            if (this.state.SortEmail === -1) {
+                ReactDOM.render(<ArrowDownIcon/>, document.getElementById('Email-Arrow'));
+            } else {
+                ReactDOM.render(<ArrowUpIcon/>, document.getElementById('Email-Arrow'));
+            }
+            ReactDOM.render(<NoIcon/>, document.getElementById('FirstName-Arrow'));
+            ReactDOM.render(<NoIcon/>, document.getElementById('LastName-Arrow'));
+        });
+    };
+
     filterList = (val) => {
         printRow = advanceRow.filter(item => {
             let data = item.firstName + item.lastName + item.email;
@@ -64,9 +127,10 @@ class Person extends React.Component {
                 val.toLowerCase().trim()) !== -1;
         });
         ReactDOM.render(<PeopleData handleClick={this.props.handleClick}/>, document.getElementById('People'));
+
     };
 
-    refresh = ()  => {
+    refresh = () => {
         advanceRow = rows;
         this.filterList("");
     };
@@ -86,13 +150,14 @@ class Person extends React.Component {
                     ));
                     advanceRow = rows;
                     this.filterList("");
-                })
-            this.setState({firstTime:false});
+                    this.sortFirstName();
+                });
+            this.setState({firstTime: false});
         }
     };
 
     render() {
-        this.getAll();
+            this.getAll();
         return (
             <div className="Person">
                 <h1>All People</h1>
@@ -114,16 +179,32 @@ class Person extends React.Component {
                         <TableHead className="Person-Table-Head">
                             <TableRow>
                                 <TableCell/>
-                                <TableCell>First Name</TableCell>
-                                <TableCell>Last Name</TableCell>
-                                <TableCell>E-mail</TableCell>
+                                <TableCell>
+                                    <Grid container>
+                                        <div id={"FirstName-Arrow"}/>
+                                        <Button onClick={() => this.sortFirstName()}>First Name</Button>
+                                    </Grid>
+                                </TableCell>
+                                <TableCell>
+                                    <Grid container>
+                                        <div id={"LastName-Arrow"}/>
+                                        <Button onClick={() => this.sortLastName()}>Last Name</Button>
+                                    </Grid>
+                                </TableCell>
+                                <TableCell>
+                                    <Grid container>
+                                        <div id={"Email-Arrow"}/>
+                                        <Button onClick={() => this.sortEmail()}>E-mail</Button>
+                                    </Grid>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody id={"People"}>
                         </TableBody>
                     </Table>
                 </Paper>
-                <Dialog open={this.state.open} maxWidth={"md"} onClose={() => this.handleClose()} aria-labelledby="simple-dialog-title">
+                <Dialog open={this.state.open} maxWidth={"md"} onClose={() => this.handleClose()}
+                        aria-labelledby="simple-dialog-title">
                     <DialogTitle id="simple-dialog-title">Advance Research</DialogTitle>
                     <div className={"Dialog-Paper"}>
                         <Grid container spacing={4}>
@@ -166,7 +247,7 @@ class Person extends React.Component {
                             <Grid xs={8}>
                                 <table>
                                     <tr>
-                                        <td>Birth Date: </td>
+                                        <td>Birth Date:</td>
                                         <td><TextField
                                             className={"Research-TextField"}
                                             id="standard-post-name"
@@ -175,7 +256,7 @@ class Person extends React.Component {
                                             onChange={e => this.changeBirthDateF(e)}
                                             margin="normal"
                                         /></td>
-                                        <td> - </td>
+                                        <td> -</td>
                                         <td><TextField
                                             className={"Research-TextField"}
                                             id="standard-post-name"
@@ -190,7 +271,7 @@ class Person extends React.Component {
                             <Grid xs={8}>
                                 <table>
                                     <tr>
-                                        <td>Arrive Date: </td>
+                                        <td>Arrive Date:</td>
                                         <td><TextField
                                             className={"Research-TextField"}
                                             id="standard-post-name"
@@ -199,7 +280,7 @@ class Person extends React.Component {
                                             onChange={e => this.changeArriveDateF(e)}
                                             margin="normal"
                                         /></td>
-                                        <td> - </td>
+                                        <td> -</td>
                                         <td><TextField
                                             className={"Research-TextField"}
                                             id="standard-post-name"

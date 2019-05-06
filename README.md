@@ -24,7 +24,7 @@ ___Rules of the project :___
 ***
 
 ___Run the projet :___
-
+Prerequisite : Node + NPM
  - Clone the project
  - with Yarn :
     - `yarn install`

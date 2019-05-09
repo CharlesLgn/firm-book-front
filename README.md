@@ -34,5 +34,7 @@ Prerequisite : Node + NPM
     - `npm start `
 
 ***
+NB: Connection : user: charles / pws : 1234
+
 
 Grades  :   ![grade](https://img.shields.io/badge/17-20-00BB00.svg)

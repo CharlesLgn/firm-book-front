@@ -4,7 +4,7 @@
 Project For 3rd year University   
 Made using React
 
-[![back](https://img.shields.io/badge/FirmBook-Back-41A48D.svg)](https://github.com/CharlesLgn/FirmBook)
+[![back](https://img.shields.io/badge/FirmBook-Back-41A48D.svg)](https://github.com/CharlesLgn/firm-book-back)
 
 ***
 
